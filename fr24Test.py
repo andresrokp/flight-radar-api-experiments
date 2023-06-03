@@ -30,7 +30,15 @@ def holaMundo():
 
 
 def writeInFiles():
-    flightsssPure = fr_api.get_flights()
+    boundsDict = {
+        'colombia' :"18.314,-8.494,-85.97,-58.988",
+        'newYork' : "44.719,39.693,-75.268,-68.117",
+        'laNada' : "23.817,-2.624,-42.155,-13.548",
+        'eldorado' : "4.73,4.676,-74.18,-74.113"
+    }
+    thisBound = 'eldorado'
+    airline = 'AVA'
+    flightsssPure = fr_api.get_flights(bounds=boundsDict[thisBound], airline=airline)
     flight = flightsssPure[-1]
     flightDetails = fr_api.get_flight_details(flight.id)
 
@@ -39,17 +47,22 @@ def writeInFiles():
     flight_details_file = "JSON-detallado-de-un-vuelo.txt"
 
     with open(flightsssPure_file,'w') as file:
-        file.write("Arreglo de objetos tipo Flight de elementos voladores\n")
-        file.write(f'Tamaño:\n\t{len(flightsssPure)}\n\n')
+        file.write("Arreglo de objetos tipo Flight de elementos voladores\n\n")
+        file.write("Parámetros petición:\n")
+        file.write(f'\tLat Lon Bounds:\n\t\t{boundsDict[thisBound]} :: aprox {thisBound}\n')
+        file.write(f'\tAerolinea:\n\t\t{airline}\n\n')
+        file.write(f'- - - - -\n\n')
+        file.write(f'Respuesta:\n\n')
+        file.write(f'Tamaño:\t{len(flightsssPure)}\n\n')
         pprint(flightsssPure, stream=file)
 
     with open(flight_file,'w') as file:
-        file.write("Un objeto tipo Fligth de la lista\n")
+        file.write("Un objeto tipo Fligth de la lista\n\n")
         file.write(f'Atributos contenidos:\n\t{dir(flight)}\n\n')
         pprint(vars(flight), stream=file)
 
     with open(flight_details_file,'w') as file:
-        file.write("JSON de detalles de un vuelo por ID\n")
+        file.write("JSON de detalles de un vuelo por ID\n\n")
         file.write(f'Tamaño:\n\t{len(flightDetails)}\n')
         file.write(f'Propiedades contenidas:\n\t{flightDetails.keys()}\n\n')
         pprint(flightDetails, stream=file)
@@ -65,8 +78,8 @@ def getZones():
         pprint(zones_list, stream=file)
 
 def main():
-    # writeInFiles()
-    getZones()
+    writeInFiles()
+    # getZones()
 
 # exec
 main()
