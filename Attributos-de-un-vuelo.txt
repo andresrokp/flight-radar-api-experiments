@@ -1,24 +1,24 @@
-Un objeto tipo Fligth de la lista
+Un objeto tipo Flight de la lista
 
 Atributos contenidos:
 	['_Flight__default_text', '_Flight__get_details', '_Flight__get_info', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'aircraft_code', 'airline_iata', 'airline_icao', 'altitude', 'callsign', 'check_info', 'destination_airport_iata', 'get_altitude', 'get_flight_level', 'get_ground_speed', 'get_heading', 'get_vertical_speed', 'ground_speed', 'heading', 'icao_24bit', 'id', 'latitude', 'longitude', 'number', 'on_ground', 'origin_airport_iata', 'registration', 'set_flight_details', 'squawk', 'time', 'vertical_speed']
 
 {'aircraft_code': 'A320',
- 'airline_iata': 'N/A',
+ 'airline_iata': 'AV',
  'airline_icao': 'AVA',
  'altitude': 0,
- 'callsign': 'HK5424',
- 'destination_airport_iata': 'N/A',
- 'ground_speed': 12,
- 'heading': 126,
- 'icao_24bit': '0ACAC1',
- 'id': '308ff578',
- 'latitude': 4.7001,
- 'longitude': -74.1377,
- 'number': 'N/A',
+ 'callsign': 'AVA8428',
+ 'destination_airport_iata': 'RCH',
+ 'ground_speed': 14,
+ 'heading': 309,
+ 'icao_24bit': 'A262A6',
+ 'id': '30945e4d',
+ 'latitude': 4.71,
+ 'longitude': -74.15,
+ 'number': 'AV8428',
  'on_ground': 1,
  'origin_airport_iata': 'BOG',
- 'registration': 'HK-5424',
+ 'registration': 'N253AC',
  'squawk': 'N/A',
- 'time': 1685802588,
+ 'time': 1685909530,
  'vertical_speed': 0}
