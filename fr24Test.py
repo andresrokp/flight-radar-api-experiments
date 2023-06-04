@@ -45,14 +45,20 @@ def getZones():
         file.write(f'Propiedades contenidas:\n\t{zones_list.keys()}\n\n')
         pprint(zones_list, stream=file)
 
+def get_fligths_with_destiny(fligthsArray, airportIata):
+    return[flight for flight in fligthsArray if flight.destination_airport_iata == airportIata]
+
+
 def main():
     boundsDict = {
         'colombia' :"18.314,-8.494,-85.97,-58.988",
         'newYork' : "44.719,39.693,-75.268,-68.117",
         'laNada' : "23.817,-2.624,-42.155,-13.548",
-        'eldorado' : "4.73,4.676,-74.18,-74.113"
+        'eldorado' : "4.73,4.676,-74.18,-74.113",
+        'america': "55.378,-38.551,-115.187,-17.629",
+        'world': "81.906,-64.644,-155.071,171.882"
     }
-    thisBound = 'colombia'
+    thisBound = 'world'
     airline = 'AVA'
     FlightsList = fr_api.get_flights(bounds=boundsDict[thisBound], airline=airline)
     flight = FlightsList[-1]
@@ -61,6 +67,9 @@ def main():
     write_FlightsList("Arreglo-de-vuelos-totales.txt", FlightsList, thisBound, boundsDict[thisBound], airline)
     write_flight("Attributos-de-un-vuelo.txt", flight)
     write_flight_details("JSON-detallado-de-un-vuelo.txt", flightDetails)
+
+    flightsToBog = get_fligths_with_destiny(FlightsList,'BOG')
+    pprint(flightsToBog)
 
     # getZones()
 
