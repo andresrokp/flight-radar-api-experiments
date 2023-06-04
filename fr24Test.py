@@ -45,8 +45,40 @@ def getZones():
         file.write(f'Propiedades contenidas:\n\t{zones_list.keys()}\n\n')
         pprint(zones_list, stream=file)
 
-def get_fligths_with_destiny(fligthsArray, airportIata):
-    return[flight for flight in fligthsArray if flight.destination_airport_iata == airportIata]
+def write_fligths_with_destiny(fligthsList, airportIata):
+    flightsToDestinyList = [flight for flight in fligthsList if flight.destination_airport_iata == airportIata]
+    destiny_file = "Detalles_Vuelos_A_Destino.txt"
+    with open(destiny_file,'w') as file:
+        file.write("Arreglo detallado de Flight que van al aeropuerto\n\n")
+        file.write(f'Aeropuerto:\n\t\t{airportIata}\n\n')
+        file.write(f'- - - - -\n\n')
+        file.write(f'Respuesta:\n\n')
+        file.write(f'Tamaño:\t{len(fligthsList)}\n\n')
+        flightsToDestinyDetailsList = [
+            {
+                'callsign': fl.callsign,
+                'registration': fl.registration,
+                'aircraft_code': fl.aircraft_code,
+                'airline_icao': fl.airline_icao,
+                'origin_airport_iata': fl.origin_airport_iata,
+                'destination_airport_iata': fl.destination_airport_iata,
+                'latitude': fl.latitude,
+                'longitude': fl.longitude,
+                'time': fl.time,
+                # 'airline_iata': 'AV',
+                # 'altitude': 0,
+                # 'ground_speed': 0,
+                # 'heading': 67,
+                # 'icao_24bit': 'AD4EBC',
+                # 'id': '3094788f',
+                # 'number': 'AV8563',
+                # 'on_ground': 1,
+                # 'squawk': 'N/A',
+                # 'vertical_speed': 0
+            }
+            for fl in flightsToDestinyList
+        ]
+        pprint(flightsToDestinyDetailsList, stream=file)
 
 
 def main():
@@ -68,8 +100,7 @@ def main():
     write_flight("Attributos-de-un-vuelo.txt", flight)
     write_flight_details("JSON-detallado-de-un-vuelo.txt", flightDetails)
 
-    flightsToBog = get_fligths_with_destiny(FlightsList,'BOG')
-    pprint(flightsToBog)
+    write_fligths_with_destiny(FlightsList,'BOG')
 
     # getZones()
 
