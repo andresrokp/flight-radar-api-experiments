@@ -7,7 +7,7 @@ import time
 from pprint import pprint
 
 load_dotenv()
-traccarID = 666
+traccarID = 777
 
 # manual data
 def manualDataInput():
@@ -33,23 +33,26 @@ def getFlightAttributesFromArray(bounds, airline, flightNumber):
     fl = [fl for fl in flightsList if fl.callsign == flightNumber][0]
     if (fl):
         return {
-                'id': fl.id,
-                'callsign': fl.callsign,
+                'lat': fl.latitude,
+                'lon': fl.longitude,
+                'idfr': fl.id,
+                'flight': fl.callsign,
                 'registration': fl.registration,
-                'aircraft_code': fl.aircraft_code,
-                'airline_icao': fl.airline_icao,
-                'origin_airport_iata': fl.origin_airport_iata,
-                'destination_airport_iata': fl.destination_airport_iata,
-                'latitude': fl.latitude,
-                'longitude': fl.longitude,
+                'aircraft': fl.aircraft_code,
+                'airline': fl.airline_icao,
+                'origin': fl.origin_airport_iata,
+                'destination': fl.destination_airport_iata,
                 'time': fl.time
         }
     else:
         return 'no hay una verga'
 
-def urlBuilding(traccarID, dataDict):
+def urlBuild(traccarID, dataDict):
     # build an url of the form: f'http://gps.sighums.com:5055/?id={traccarID}&{param1}={value1}&{param2}={value2}&{paramX}={valueX}
-    url = f''
+    baseURL = 'http://gps.sighums.com:5055/'
+    idFragment = f'?id={traccarID}&'
+    attributesChain = '&'.join([f'{prop}={val}' for prop,val in dataDict.items()])
+    url = f'{baseURL}{idFragment}{attributesChain}'
     return url
 
 # data send
@@ -69,10 +72,10 @@ def main():
         dataDict = getFlightAttributesFromArray()
 
         # # URL bulding
-        url = urlBuilding(traccarID, dataDict)
+        url = urlBuild(traccarID, dataDict)
         sendToTraccar(url)
 
-        pprint(f'idx:{idx}, pos:{lat,lon}')
+        pprint(f'idx:{idx}, pos:{dataDict.latitude,dataDict.longitude}')
         # loop end
         time.sleep(3)
         idx = idx + 1
@@ -80,6 +83,8 @@ def main():
 
 dataDict = getFlightAttributesFromArray('world','AVA','AVA019')
 pprint(dataDict)
+url = urlBuild(traccarID, dataDict)
+pprint(url)
 
 # Vuelo que viene de barcelona
 #  {'aircraft_code': 'B788',
@@ -92,3 +97,6 @@ pprint(dataDict)
 #   'origin_airport_iata': 'BCN',
 #   'registration': 'N792AV',
 #   'time': 1685967436},
+
+# http://gps.sighums.com:5055/?id=777&lat=38.77&lon=-33.5&idfr=30965061&flight=AVA019&registration=N792AV&aircraft=B788&airline=AVA&origin=BCN&destination=BOG&time=1685981510
+# http://gps.sighums.com:5055/?id=666&lat=11.167665&lon=-70.879865&pruebas=traccar&Cristian=CachonMasterNivelVallenatoLloron
