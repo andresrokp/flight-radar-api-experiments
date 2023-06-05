@@ -56,6 +56,7 @@ def write_fligths_with_destiny(fligthsList, airportIata):
         file.write(f'Tamaño:\t{len(fligthsList)}\n\n')
         flightsToDestinyDetailsList = [
             {
+                'id': '3094788f',
                 'callsign': fl.callsign,
                 'registration': fl.registration,
                 'aircraft_code': fl.aircraft_code,
@@ -70,7 +71,6 @@ def write_fligths_with_destiny(fligthsList, airportIata):
                 # 'ground_speed': 0,
                 # 'heading': 67,
                 # 'icao_24bit': 'AD4EBC',
-                # 'id': '3094788f',
                 # 'number': 'AV8563',
                 # 'on_ground': 1,
                 # 'squawk': 'N/A',
