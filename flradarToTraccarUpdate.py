@@ -8,20 +8,22 @@ from pprint import pprint
 
 load_dotenv()
 traccarID = 666
-lat = 11.0051;
-lon = -74.8080;
+lat = 11.017700;
+lon = -74.795400;
 
-def sendRequest(url):
+def sendToTraccar(url):
     requests.get(url)
 
 
-url = f'http://gps.sighums.com:5055/?id={traccarID}&lat={lat}&lon={lon}&pruebas=traccar&lugar=barranquilla'
+idx = 0
 while True:
-    lat = lat + 0.0001
-    lon = lon + 0.0001
-    pprint({lat,lon})
-    sendRequest(url)
-    time.sleep(2)
+    lat = lat + 0.0003
+    lon = lon + 0.0003
+    url = f'http://gps.sighums.com:5055/?id={traccarID}&lat={lat}&lon={lon}&pruebas=traccar&lugar=barranquilla&idx={idx}'
+    pprint(f'idx:{idx}, pos:{lat,lon}')
+    sendToTraccar(url)
+    time.sleep(3)
+    idx = idx + 1
 
 
 
