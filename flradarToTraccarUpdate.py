@@ -2,9 +2,9 @@ import os
 from dotenv import load_dotenv, dotenv_values
 from FlightRadar24.api import FlightRadar24API
 from FlightRadar24.flight import Flight
-import requests
-import time
 from pprint import pprint
+import time
+import requests
 
 load_dotenv()
 traccarID = 777
@@ -69,22 +69,22 @@ def main():
         # # from getFlightDetailsWithID
 
         # # from getFlightAttributesFromArray
-        dataDict = getFlightAttributesFromArray()
+        dataDict = getFlightAttributesFromArray('world','AVA','AVA019')
+        pprint(dataDict)
 
         # # URL bulding
         url = urlBuild(traccarID, dataDict)
+        pprint(url)
+        
         sendToTraccar(url)
 
-        pprint(f'idx:{idx}, pos:{dataDict.latitude,dataDict.longitude}')
+        pprint(f'idx:{idx}, pos:{dataDict["lat"],dataDict["lon"]}')
         # loop end
-        time.sleep(3)
+        time.sleep(10)
         idx = idx + 1
 
 
-dataDict = getFlightAttributesFromArray('world','AVA','AVA019')
-pprint(dataDict)
-url = urlBuild(traccarID, dataDict)
-pprint(url)
+main()
 
 # Vuelo que viene de barcelona
 #  {'aircraft_code': 'B788',
