@@ -90,9 +90,9 @@ def main():
         'america': "55.378,-38.551,-115.187,-17.629",
         'world': "81.906,-64.644,-155.071,171.882"
     }
-    thisBound = 'world'
+    thisBound = 'eldorado'
     airline = 'AVA'
-    FlightsList = fr_api.get_flights(bounds=boundsDict[thisBound], airline=airline)
+    FlightsList = fr_api.get_flights(bounds=boundsDict[thisBound])
     flight = FlightsList[-1]
     flightDetails = fr_api.get_flight_details(flight.id)
 

@@ -2,7 +2,7 @@ Arreglo de objetos tipo Flight de elementos voladores
 
 Parámetros petición:
 	Lat Lon Bounds:
-		81.906,-64.644,-155.071,171.882 :: aprox world
+		4.73,4.676,-74.18,-74.113 :: aprox eldorado
 	Aerolinea:
 		AVA
 
@@ -10,67 +10,13 @@ Parámetros petición:
 
 Respuesta:
 
-Tamaño:	62
+Tamaño:	8
 
-[<(B788) N794AV - Altitude: 43000 - Ground Speed: 476 - Heading: 234>,
- <(B788) N796AV - Altitude: 41000 - Ground Speed: 476 - Heading: 113>,
- <(B788) N786AV - Altitude: 41000 - Ground Speed: 470 - Heading: 164>,
- <(B788) N785AV - Altitude: 40996 - Ground Speed: 467 - Heading: 229>,
- <(B788) N791AV - Altitude: 40000 - Ground Speed: 478 - Heading: 231>,
- <(A20N) N818AV - Altitude: 39000 - Ground Speed: 431 - Heading: 164>,
- <(B788) N792AV - Altitude: 38975 - Ground Speed: 494 - Heading: 30>,
- <(B788) N780AV - Altitude: 38975 - Ground Speed: 480 - Heading: 146>,
- <(B788) N782AV - Altitude: 38975 - Ground Speed: 499 - Heading: 43>,
- <(A20N) HK-5409 - Altitude: 38950 - Ground Speed: 461 - Heading: 173>,
- <(B788) N784AV - Altitude: 38000 - Ground Speed: 482 - Heading: 251>,
- <(A20N) N937AV - Altitude: 37025 - Ground Speed: 511 - Heading: 123>,
- <(A20N) N934AG - Altitude: 37025 - Ground Speed: 428 - Heading: 168>,
- <(A320) N281AV - Altitude: 37025 - Ground Speed: 452 - Heading: 114>,
- <(A320) N688TA - Altitude: 37025 - Ground Speed: 438 - Heading: 168>,
- <(A20N) N765AV - Altitude: 37000 - Ground Speed: 452 - Heading: 137>,
- <(A20N) N938AV - Altitude: 37000 - Ground Speed: 463 - Heading: 172>,
- <(A319) N753AV - Altitude: 37000 - Ground Speed: 443 - Heading: 174>,
- <(A320) N454AV - Altitude: 37000 - Ground Speed: 450 - Heading: 230>,
- <(A20N) N966AV - Altitude: 36975 - Ground Speed: 454 - Heading: 165>,
- <(A320) N745AV - Altitude: 36025 - Ground Speed: 454 - Heading: 209>,
- <(A320) HK-5273 - Altitude: 36025 - Ground Speed: 466 - Heading: 349>,
- <(A20N) N967AV - Altitude: 36000 - Ground Speed: 470 - Heading: 347>,
- <(A320) N664AV - Altitude: 36000 - Ground Speed: 447 - Heading: 208>,
- <(A20N) N963AV - Altitude: 36000 - Ground Speed: 417 - Heading: 294>,
- <(A20N) N762AV - Altitude: 36000 - Ground Speed: 478 - Heading: 189>,
- <(A319) N647AV - Altitude: 36000 - Ground Speed: 452 - Heading: 348>,
- <(A20N) N965AV - Altitude: 35975 - Ground Speed: 462 - Heading: 350>,
- <(A20N) N920CG - Altitude: 35950 - Ground Speed: 417 - Heading: 185>,
- <(A20N) N962AV - Altitude: 35300 - Ground Speed: 420 - Heading: 310>,
- <(A320) N980AV - Altitude: 35025 - Ground Speed: 406 - Heading: 200>,
- <(A319) N726AV - Altitude: 35025 - Ground Speed: 447 - Heading: 137>,
- <(A20N) N766AV - Altitude: 35000 - Ground Speed: 515 - Heading: 121>,
- <(A320) N954AV - Altitude: 35000 - Ground Speed: 457 - Heading: 168>,
- <(A320) N538AV - Altitude: 34025 - Ground Speed: 454 - Heading: 299>,
- <(A320) N567AV - Altitude: 34000 - Ground Speed: 454 - Heading: 304>,
- <(A320) N345AV - Altitude: 34000 - Ground Speed: 402 - Heading: 219>,
- <(A320) HK-5407 - Altitude: 28475 - Ground Speed: 459 - Heading: 11>,
- <(A319) N422AV - Altitude: 27625 - Ground Speed: 451 - Heading: 351>,
- <(A320) N955AV - Altitude: 24675 - Ground Speed: 455 - Heading: 328>,
- <(A320) N958AV - Altitude: 20000 - Ground Speed: 421 - Heading: 345>,
- <(A320) N4304 - Altitude: 16825 - Ground Speed: 388 - Heading: 350>,
- <(A319) N519AV - Altitude: 14950 - Ground Speed: 321 - Heading: 18>,
- <(A319) N723AV - Altitude: 14300 - Ground Speed: 321 - Heading: 204>,
- <(A320) N959AV - Altitude: 13125 - Ground Speed: 269 - Heading: 133>,
- <(A320) N956AV - Altitude: 12950 - Ground Speed: 316 - Heading: 195>,
- <(A320) N755AV - Altitude: 11500 - Ground Speed: 350 - Heading: 173>,
- <(A320) N728AV - Altitude: 9900 - Ground Speed: 232 - Heading: 10>,
- <(A320) N724AV - Altitude: 8050 - Ground Speed: 182 - Heading: 127>,
- <(A319) N694AV - Altitude: 6250 - Ground Speed: 292 - Heading: 354>,
- <(A320) N748AV - Altitude: 3000 - Ground Speed: 205 - Heading: 124>,
- <(A320) N821AV - Altitude: 2075 - Ground Speed: 203 - Heading: 222>,
- <(A320) N960AV - Altitude: 0 - Ground Speed: 0 - Heading: 337>,
- <(A320) HK-5425 - Altitude: 0 - Ground Speed: 16 - Heading: 160>,
- <(A320) HC-CTX - Altitude: 0 - Ground Speed: 14 - Heading: 177>,
- <(A320) N230AC - Altitude: 0 - Ground Speed: 8 - Heading: 354>,
- <(A320) N743AV - Altitude: 0 - Ground Speed: 0 - Heading: 33>,
- <(A20N) N940AV - Altitude: 0 - Ground Speed: 1 - Heading: 78>,
- <(A320) N763AV - Altitude: 0 - Ground Speed: 0 - Heading: 92>,
- <(A320) N951AV - Altitude: 0 - Ground Speed: 34 - Heading: 357>,
- <(A320) N411AE - Altitude: 0 - Ground Speed: 0 - Heading: 137>,
- <(A320) HK-5423 - Altitude: 0 - Ground Speed: 0 - Heading: 219>]
+[<(A320) N688TA - Altitude: 0 - Ground Speed: 8 - Heading: 81>,
+ <(A320) HK-5425 - Altitude: 0 - Ground Speed: 3 - Heading: 36>,
+ <(A320) N743AV - Altitude: 0 - Ground Speed: 0 - Heading: 216>,
+ <(A320) N206FR - Altitude: 0 - Ground Speed: 0 - Heading: 225>,
+ <(A320) HK-5408 - Altitude: 0 - Ground Speed: 1 - Heading: 281>,
+ <(A320) CC-BAA - Altitude: 0 - Ground Speed: 72 - Heading: 126>,
+ <(A319) CC-COZ - Altitude: 0 - Ground Speed: 0 - Heading: 216>,
+ <(CL60) N/A - Altitude: 0 - Ground Speed: 8 - Heading: 126>]
