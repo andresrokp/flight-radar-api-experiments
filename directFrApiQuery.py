@@ -63,6 +63,10 @@ try:
         # Print the formatted table
         print(tabulate(table_data, headers, tablefmt="fancy_grid"))
 
+        txt_out_file = 'arrivals.txt'
+        with open(txt_out_file,'w') as txt_file:
+            txt_file.write(tabulate(table_data, headers,tablefmt="fancy_grid"))
+
     else:
         print("BAD")
 except requests.exceptions.RequestException as e:
