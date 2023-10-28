@@ -1,6 +1,7 @@
 import requests
 import json
 from tabulate import tabulate
+from datetime import datetime
 
 headers = {
     "accept-encoding": "gzip, br",
@@ -38,7 +39,6 @@ try:
             flight = arrival.get("flight", {})
             identification = flight.get("identification", {})
             status = flight.get("status", {})
-            aircraft = flight.get("aircraft", {})
             owner = flight.get("owner", {})
             airline = flight.get("airline", {})
             airport = flight.get("airport", {})
@@ -48,17 +48,19 @@ try:
             flight_id = identification.get("id", "N/A")
             flight_number = identification.get("number", {}).get("default", "N/A")
             airline_name = airline.get("name", "N/A")
-            origin = airport.get("origin", {}).get("name", "N/A")
-            destination = airport.get("destination", {}).get("name", "N/A")
-            departure_time = time.get("real", {}).get("departure", "N/A")
-            arrival_time = time.get("real", {}).get("arrival", "N/A")
+            origin = airport.get("origin", {}).get("code", "N/A").get("iata", "N/A")
+            destination = data["result"]["request"]["code"]
+            departure_time = time.get("scheduled", {}).get("departure", "N/A")
+            departure_time = datetime.fromtimestamp(departure_time).strftime("%d/%m@%H:%M")
+            arrival_time = time.get("scheduled", {}).get("arrival", "N/A")
+            arrival_time = datetime.fromtimestamp(arrival_time).strftime("%d/%m@%H:%M")
             status_text = status.get("text", "N/A")
 
             # Append the extracted data as a row in the bucket list
-            table_data.append([flight_id, flight_number, airline_name, origin, destination, departure_time, arrival_time, status_text])
+            table_data.append([flight_id, flight_number, airline_name, origin, 'VER', departure_time, arrival_time, status_text])
 
         # Headers in normal write style
-        headers = ["ID", "Flight Number", "Airline", "Origin", "Destination", "Departure Time", "Arrival Time", "Status"]
+        headers = ["ID", "Flight Number", "Airline", "Origin", "Destination", "Departure Time sch", "Arrival Time sch", "Status"]
 
         # Print the formatted table
         print(tabulate(table_data, headers, tablefmt="fancy_grid"))
